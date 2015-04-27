@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>invoice Management System</title>
+	<link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/bootstrap-theme.css" />
+    <link rel="stylesheet" href="css/app.css" />
+    <script src="scripts/angular.js"></script>
+	<script src="scripts/angular-ui-router.js"></script>
+	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.1/ui-bootstrap-tpls.min.js"></script>
+	
+</head>
+<body ng-app="myApp">
+	
+	
+ 	<nav class="navbar nav-tabs" role="navigation">
+ 		<div class="container" id="invoice-div">
+ 			<h3>Synerzip - Welcome to Invoice Management System</h3>
+			<ul class="nav nav-tabs">
+			  <li role="presentation" ng-class="{'active': tabSelected=='Customer'}"><a ui-sref="customer">Customer</a></li>
+			  <li role="presentation" ng-class="{'active': tabSelected=='Invoice'}"><a ui-sref="invoice">Invoice</a></li>				  
+			</ul>
+		</div>
+	</nav>
+	
+	<!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
+	<div id="content" class="container">
+	    <div ui-view></div>
+	</div>
+	<script src="app/invoicemgmt/invoicemgmt.module.js"></script>
+	<script src="app/invoicemgmt/filter/filters.js"></script>
+	<script src="app/invoicemgmt/config/routes.js"></script>
+	<script src="app/invoicemgmt/controllers/invoicemgmt.controller.js"></script>
+	<script src="app/invoicemgmt/controllers/InvoiceController.js"></script>
+	<script src="app/invoicemgmt/controllers/CustomerController.js"></script>
+	<script src="app/invoicemgmt/services/CustomerDataService.js"></script>
+	<script src="app/app.js"></script>
+
+</body>
+</html>

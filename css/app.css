@@ -1,0 +1,17 @@
+#invoice-div > ul > li.active > a{
+	background-color : #eee;
+}
+
+.row{
+	padding: 2px;
+}
+
+#add-invoice-div{
+	width: 45%;
+}
+#item-details {
+	width: 40%;
+}
+#add-invoice-div, #item-details {
+	float: left;
+}

@@ -1,0 +1,14 @@
+<ul id="customer-nav" class="nav nav-pills">
+  <li role="presentation" ng-class="{'active': subTabSelected==='CustomerAdd'}" ng-click="highlightSubTab('CustomerAdd')">
+  	<a ui-sref="customer.add" >Add Customer</a>
+  </li>
+  <li><a>|</a></li>
+  <li role="presentation" ng-class="{'active': subTabSelected==='CustomerList'}" ng-click="highlightSubTab('CustomerList')">
+  	<a ui-sref="customer.list">Customer List</a>
+  </li>
+</ul>
+<br>
+
+<div class="container">
+<div ui-view>Click on one of the links</div>
+</div>

@@ -1,0 +1,20 @@
+<div class="container">
+	<div class="panel  panel-primary" style="width:50%">
+	  <!-- Default panel contents -->
+	  <div class="panel-heading"><b>Customers List</b></div>
+	
+	  <!-- Table -->
+	  <table class="table">
+	    	<tbody>
+			<tr>
+				<th>Customer Name</th>
+				<th>Customer Address</th>
+			</tr>
+			<tr ng-repeat='(id, val) in customerDataList'>
+				<td>{{val.name}}</td>
+				<td>{{val.address}}</td>
+			</tr>
+		</tbody>
+	  </table>
+	</div>
+</div>

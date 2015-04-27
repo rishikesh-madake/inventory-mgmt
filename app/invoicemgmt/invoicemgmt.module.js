@@ -1,0 +1,1 @@
+angular.module('invoicemgmt', ['ui.router', 'ui.bootstrap']);

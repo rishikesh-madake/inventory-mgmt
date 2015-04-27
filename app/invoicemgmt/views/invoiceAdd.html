@@ -1,0 +1,90 @@
+<div id="add-invoice-div" class="container">
+  <div class="row">
+    <div class="col-md-4">Customer Name</div>
+	<div class="col-md-6">
+		<input type="text" ng-model="nameSelected" 
+				typeahead="customer.name for customer in customerListArray | filter:$viewValue"
+				typeahead-on-select="onSelect($item, $model, $label)"
+				typeahead-editable="false"
+				ng-required="true"
+				ng-disabled="disableNameInput">
+	</div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">Address</div>
+	<div class="col-md-6"><input type="text" ng-model="address" ng-disabled="true"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">Item</div>
+	<div class="col-md-6">
+		<input type="text" ng-model="itemName" ng-required="true">
+	</div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-4">Cost</div>
+	<div class="col-md-6">
+		<input type="number" ng-model="itemCost" ng-required="true">
+	</div>
+  </div>
+  
+  <br>
+  
+  <div class="row">
+    <div class="btn-group" role="group">
+    	<button type="button" class="btn btn-default" ng-click="addInvoice()" ng-disabled="disableSubmitBtn">Add Invoice</button>
+	    <button type="button" class="btn btn-default" ng-click="addItem()" ng-disabled="disableAnotherItemBtn">Add Item</button>	
+	    <button type="button" class="btn btn-default" ng-click="reset()">Reset</button>
+    </div>
+  </div>
+   <br>
+   
+  <div class="row">
+	<div class="col-md-6">
+		<div class="panel panel-warning" ng-show="warning">
+			<div class="panel-heading">Please fill in all details!!</div>			
+		</div>
+	</div>
+  </div>
+  
+  <div class="row">
+	<div class="col-md-8">  
+		<div class="panel  panel-success" ng-show="itemSuccess">
+			<div class="panel-heading">Item Added Successfully!!</div>
+		</div>
+	</div>
+  </div>
+  
+  <div class="row">
+	<div class="col-md-8">  
+		<div class="panel  panel-success" ng-show="invoiceSuccess">
+			<div class="panel-heading">Invoice Added Successfully!!</div>
+		</div>
+	</div>
+  </div>
+  
+</div>
+
+<div id="item-details" class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><b>Items List</b></div>
+
+  <!-- Table -->
+  <table class="table">
+    	<tbody>
+		<tr>
+			<th>Item Name</th>
+			<th>Item Cost</th>
+		</tr>
+		<tr ng-repeat='item in items'>
+			<td>{{item.itemName}}</td>
+			<td>{{item.itemCost}}</td>
+		</tr>
+		<tr>
+			<th>Total Cost : {{totalCost}}</th>
+		</tr>
+	</tbody>
+  </table>
+</div>
