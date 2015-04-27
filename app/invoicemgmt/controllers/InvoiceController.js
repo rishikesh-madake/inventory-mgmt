@@ -93,10 +93,10 @@ angular.module('invoicemgmt')
 		
 
 	}])
-	.controller('InvoiceListCtrl', ['$scope', 'CustomerDataService', '$state', 'InvoiceService', function($scope, CustomerDataService, $state, InvoiceService){
+	.controller('InvoiceListCtrl', ['$scope', 'CustomerDataService', '$state', 'InvoiceService', '$filter', function($scope, CustomerDataService, $state, InvoiceService, $filter){
 		$scope.customerDataList = CustomerDataService.getCustomerList();
 		$scope.invoiceList = InvoiceService.getInvoices();
-		$scope.customerIdNameMap = CustomerDataService.getCustomerListArray();
+		$scope.customerIdNameMap = $filter("checkInvoices")(CustomerDataService.getCustomerListArray());
 		//console.log("[InvoiceListCtrl] Invoice List : " + JSON.stringify($scope.invoiceList));
 		$scope.invoiceCostMap ={};
 		//console.log("[InvoiceListCtrl] Customer Data List : " + JSON.stringify($scope.customerDataList));
@@ -123,5 +123,20 @@ angular.module('invoicemgmt')
 			}
 		};
 		$scope.calculateInvoiceCost();
+		
+		//Pagination 
+		$scope.itemsPerPage = 3;
+		$scope.totalItems = $scope.customerIdNameMap.length;
+		$scope.currentPage = 1;
+		$scope.maxSize = 5;
+		
+		$scope.filteredCustomerIdNameMap = angular.copy($scope.customerIdNameMap);
+		
+		$scope.pageChanged = function(){
+			 var begin = (($scope.currentPage - 1) * $scope.itemsPerPage),
+			     end = begin + $scope.itemsPerPage;
+			 $scope.filteredCustomerIdNameMap = $scope.customerIdNameMap.slice(begin, end);
+		};
+		$scope.pageChanged();
 
 	}]);

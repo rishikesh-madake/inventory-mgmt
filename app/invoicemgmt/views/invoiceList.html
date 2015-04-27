@@ -5,11 +5,19 @@
 		</div>
 	</div>
 	<div class="row">
+		<div class="col-md-6">
+			<pagination total-items="totalItems" items-per-page="itemsPerPage" boundary-links="true" class="pagination-sm"  
+					max-size="maxSize" ng-model="currentPage" ng-change="pageChanged()">
+			</pagination>
+		</div>
+	</div>
+	<div class="row">
 		<!-- This column is for showing the Invoice Lists for each customer -->
 		<div class="col-md-6">
 
 
-				<div class="panel  panel-info" ng-repeat="customer in customerIdNameMap | checkInvoices | filter:customerName">
+							
+				<div class="panel  panel-info" ng-repeat="customer in filteredCustomerIdNameMap | filter:customerName">
 				  <!-- Default panel contents -->
 				  <div class="panel-heading"><b>Customer : <a ui-sref="invoice.list.showCustomerDetails({cusId : customer.id})"><u>{{customer.name}}</u></a></b></div>
 				
@@ -30,7 +38,7 @@
 				  </table>
 				  
 				</div>
-
+				
 		</div>
 		
 		<!-- This is for showing Customer Details/Particular Invoice Details -->
