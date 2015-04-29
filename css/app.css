@@ -1,12 +1,12 @@
-#invoice-div > ul > li.active > a{
+#invoice-div > ul > li.active > a {
 	background-color : #eee;
 }
 
-.row{
+.row {
 	padding: 2px;
 }
 
-#add-invoice-div{
+#add-invoice-div {
 	width: 45%;
 }
 #item-details {
@@ -14,4 +14,35 @@
 }
 #add-invoice-div, #item-details {
 	float: left;
+}
+.table{
+	margin-bottom: 0px;
+}
+
+.panel-body {
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 2px;
+	padding-bottom: 0px;
+	text-align: right;
+}
+
+.invoice-table-pagination {
+	margin: 0px;
+	margin-bottom: -5px;
+}
+
+.invoice-panel-footer {
+	background-image: linear-gradient(to bottom, #d9edf7 0%, #c4e3f3 100%);
+	text-align: right;
+	padding: 0px;
+	margin-bottom: 0px;
+}
+
+ul.invoice-table-pagination li a {
+	background-image: linear-gradient(to bottom, #d9edf7 0%, #c4e3f3 100%) !important;
+}
+
+ul.invoice-table-pagination > .active > a{
+	color: #2e6da4 !important;
 }

@@ -14,31 +14,16 @@
 	<div class="row">
 		<!-- This column is for showing the Invoice Lists for each customer -->
 		<div class="col-md-6">
+				<div class="panel panel-info" ng-repeat="customer in filteredCustomerIdNameMap | filter:customerName">
+					<!-- Default panel contents -->
+					<div class="panel-heading">
+					 	<h3 class="panel-title">Customer : <a ui-sref="invoice.list.showCustomerDetails({cusId : customer.id})"><u>{{customer.name}}</u></a></h3>
+					</div>
 
+					<!-- Directive -->
+					<invoice-table-directive customer="customer" customer-data-list="customerDataList"></invoice-table-directive>
 
-							
-				<div class="panel  panel-info" ng-repeat="customer in filteredCustomerIdNameMap | filter:customerName">
-				  <!-- Default panel contents -->
-				  <div class="panel-heading"><b>Customer : <a ui-sref="invoice.list.showCustomerDetails({cusId : customer.id})"><u>{{customer.name}}</u></a></b></div>
-				
-				  <!-- Table -->
-				  <table class="table">
-				    	<tbody>
-						<tr>
-							<th>Sr No</th>
-							<th>InvoiceID</th>
-							
-						</tr>
-						<tr ng-repeat="invoiceId in customerDataList[customer.id].invoices">
-							<td>{{$index + 1}}</td>
-							<td><a ui-sref="invoice.list.showInvoiceDetails({invoiceId : invoiceId})">{{invoiceId}}</a></td>
-							
-						</tr>
-					</tbody>
-				  </table>
-				  
-				</div>
-				
+				</div>				
 		</div>
 		
 		<!-- This is for showing Customer Details/Particular Invoice Details -->
