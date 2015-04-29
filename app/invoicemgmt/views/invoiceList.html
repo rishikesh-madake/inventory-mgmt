@@ -13,7 +13,7 @@
 	</div>
 	<div class="row">
 		<!-- This column is for showing the Invoice Lists for each customer -->
-		<div class="col-md-6">
+		<div class="col-md-4">
 				<div class="panel panel-info" ng-repeat="customer in filteredCustomerIdNameMap | filter:customerName">
 					<!-- Default panel contents -->
 					<div class="panel-heading">
@@ -27,7 +27,7 @@
 		</div>
 		
 		<!-- This is for showing Customer Details/Particular Invoice Details -->
-		<div class="col-md-6">
+		<div class="col-md-4 col-md-offset-1">
 	    	<div ui-view></div>
 		</div>
 
